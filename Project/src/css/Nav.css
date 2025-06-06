@@ -1,0 +1,8 @@
+.nav-zoom{
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.nav-zoom:hover {
+    transform: scale(1.1);
+}

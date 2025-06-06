@@ -1,4 +1,4 @@
-body {
+.form-body {
   height: 100vh;
   margin: 0;
   background: radial-gradient(rgb(82, 82, 82), rgb(0, 0, 0));
@@ -29,7 +29,7 @@ body {
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  width: 90%;
+  width: 30%;
   min-width: 450px;
   color: white;
 }
@@ -44,7 +44,7 @@ body {
   background-color: rgba(255, 255, 255, 0.3);
   border-color: #007bff;
   box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
-  color: #444;
+  color: white;
 }
 
 .form-control::placeholder {
