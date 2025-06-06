@@ -1,0 +1,92 @@
+body {
+  height: 100vh;
+  margin: 0;
+  background: radial-gradient(rgb(82, 82, 82), rgb(0, 0, 0));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.background-circle-orange {
+  position: absolute;
+  width: 100dvw;
+  height: 50dvh;
+  top: -25dvh;
+  left: 0;
+  transform: translateX(-0dvh, -50dvw);
+  background-image: radial-gradient(rgb(255, 17, 0), orange);
+  border-radius: 50%;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 0;
+}
+
+.form-box {
+  z-index: 1;
+  background: rgba(57, 57, 57, 0.2);
+  backdrop-filter: blur(15px);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  min-width: 450px;
+  color: white;
+}
+
+.form-control {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+}
+
+.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+  color: #444;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.form-floating > label {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.form-check-label,
+.form-check-input {
+  cursor: pointer;
+  color: white;
+}
+
+.forgot-password {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+
+  .form-box {
+    width: 90%;
+    min-width: 300px;
+  }
+
+.background-circle-orange {
+  height: 100dvh;
+  width: 200dvw;
+  top: -50dvh;
+  left: -100dvw;
+  right: -100dvw;
+}
+
+  .form-box {
+    padding: 1.5rem 1rem;
+  }
+}
