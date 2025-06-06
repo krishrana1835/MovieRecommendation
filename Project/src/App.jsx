@@ -1,9 +1,10 @@
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, Outlet } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 import Home from './components/Home';
+import Favorites from './components/Favorites';
 import NavBar from './components/NavBar';
-import { useState, useEffect } from 'react';
 
 function App() {
   const uid = "krish";
@@ -16,7 +17,7 @@ function App() {
     const session = localStorage.getItem('session');
     if (session === 'active') {
       setIsLoggedIn(true);
-    }else{
+    } else {
       navigate('/');
     }
   }, []);
@@ -27,7 +28,7 @@ function App() {
       setIsLoggedIn(true);
       navigate('/HomePage');
     } else {
-      navigate('/'); // redirect to login if session invalid
+      navigate('/');
     }
   };
 
@@ -37,22 +38,26 @@ function App() {
     navigate('/');
   };
 
-  const HomePage = () => (
+  // Layout with shared NavBar for HomePage and sub-pages
+  const HomeLayout = () => (
     <>
       <NavBar onSend={setSearch} onLogout={handleLogout} />
-      <div
-        className="container"
-      >
-        <Home searchData={search} setSearchData={setSearch} />
+      <div className="container mt-3">
+        <Outlet />
       </div>
     </>
   );
 
   return (
     <Routes>
-      <Route path='/' element={<LoginForm onLogin={handleLogin} />} />
-      <Route path='SignUp' element={<SignupForm />} />
-      {isLoggedIn && <Route path='HomePage' element={<HomePage />} />}
+      <Route path="/" element={<LoginForm onLogin={handleLogin} />} />
+      <Route path="SignUp" element={<SignupForm />} />
+      {isLoggedIn && (
+        <Route path="HomePage" element={<HomeLayout />}>
+          <Route index element={<Home searchData={search} setSearchData={setSearch} />} />
+          <Route path="Favorites" element={<Favorites />} />
+        </Route>
+      )}
     </Routes>
   );
 }

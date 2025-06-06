@@ -38,7 +38,7 @@ function NavBar({ onSend, onLogout }) {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link text-light nav-zoom" to="/Favorites">Favorites</Link>
+                                <Link className="nav-link text-light nav-zoom" to="/HomePage/Favorites">Favorites</Link>
                             </li>
                             <li className="nav-item">
                                 <button className="nav-link text-light nav-zoom" onClick={onLogout}>Logout</button>
